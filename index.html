@@ -31,7 +31,6 @@ app.controller('myCtrl', function($scope,$http,$interval) {
 			$scope.mensaje = linea.dateString.split('T')[1].split('+')[0];
 			})
 		},1000);
-	$http.get('/datos.json').then(function(response){$scope.datos=response.data});
 });
 </script>
 </body>
