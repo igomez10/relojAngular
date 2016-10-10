@@ -26,10 +26,10 @@ app.controller('myCtrl', function($scope,$http,$interval) {
 
 	$scope.mensaje='cargando....';
 	$scope.agregar=$interval(function(){
-		$http.get('https://www.google.com/finance/info?q=NASDAQ%3AAAPL&ei=AA77V-G4NsbFe6iqrLAF?callback=parseResponse').then(function(response){
+		$http.get('https://www.quandl.com/api/v3/datasets/WIKI/FB.json?api_key=KcCkwZ72yMwzQtCEqoTb').then(function(response){
 			var linea=response.data;
 			
-			$scope.mensaje = linea.split(':')[5].split(',')[0].split('"')[1];
+			$scope.mensaje = linea.dataset.data[0][2];
 			})
 		},1000);
 });
