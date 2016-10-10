@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html>
+<head>
 <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js'></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
+</head>
 
 <body>
 
@@ -25,7 +26,7 @@ app.controller('myCtrl', function($scope,$http,$interval) {
 
 	$scope.mensaje='cargando....';
 	$scope.agregar=$interval(function(){
-		$http.get('https://www.google.com/finance/info?q=NASDAQ%3AAAPL&ei=AA77V-G4NsbFe6iqrLAF').then(function(response){
+		$http.get('https://www.google.com/finance/info?q=NASDAQ%3AAAPL&ei=AA77V-G4NsbFe6iqrLAF?callback=parseResponse').then(function(response){
 			var linea=response.data;
 			
 			$scope.mensaje = linea.split(':')[5].split(',')[0].split('"')[1];
